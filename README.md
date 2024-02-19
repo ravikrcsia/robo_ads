@@ -18,7 +18,7 @@ Turtlebot3 Robot, within a simulated Gazebo world environment. The system should
   -  ROS Noetic Ninjemys
   -  Gazebo
 
-### Video Link
+## Video Link
 
 > [Google Drive link](https://drive.google.com/file/d/1xMPXKe3mIFX92K_4lBZCeWuHDkQou3hZ/view?usp=drive_link)
 
@@ -36,7 +36,7 @@ catkin build
 ```
 
 
-### TO START THE TASK
+## TO START THE TASK
 
 - Start the simulation of the world with other nodes like `dummy_battery`, `aruco_detect`, `dock_controller` with the world file `office.world`. Also it will start the image view of the back camera.
 ```bash
@@ -60,17 +60,17 @@ rosrun turtlebot3_navigation robo_nav.py
 You can find the model file in `turtlebot3_gazebo/models/aruco_marker`
 
 
-### Explanation of the Nodes
+## Explanation of the Nodes
 
-#### dummy_battery.py (`battery_simulator`)
+### dummy_battery.py (`battery_simulator`)
 
 The `dummy_battery.py` script is a ROS Node that simulates a battery system. It initializes with a starting battery level, discharge rate, and charge rate, and subscribes to the `battery_status` topic to receive charge control commands. The Node includes functions to discharge and charge the battery based on the received commands, and it continuously publishes the battery level and status. The script is designed to run indefinitely, simulating the behavior of a battery system in a ROS environment.
 
-#### aruco_detect.py (`aruco_marker_tracker`)
+### aruco_detect.py (`aruco_marker_tracker`)
 
 The `aruco_detect.py` script is a ROS (Robot Operating System) node that detects and tracks Aruco markers in real-time. It uses the OpenCV library and the Aruco marker detection library to find Aruco markers in an image, estimate their pose relative to the camera, and publish the pose information as transforms in the ROS TF (Transform) tree. Additionally, it uses the TF2_ROS library to publish transforms and the pose of the marker with respect to the `/odom` frame.
 
-#### dock_controller.py (`dock_controller_node`)
+### dock_controller.py (`dock_controller_node`)
 
 The `dock_controller.py` script is designed for the autonomous docking of a robot using a back camera and the lidar sensor. The script utilizes various ROS messages and services to receive and process data from sensors, calculate errors, and generate velocity commands to guide the robot to a charging dock.
 
@@ -82,7 +82,7 @@ The script also includes a normalization function for angles and a function to c
 
 The docking process is triggered by a ROS service call, and the script returns the docking time and the distance to the goal after docking.
 
-#### robo_nav.py (`robo_nav`)
+### robo_nav.py (`robo_nav`)
 
 The script is designed to navigate the robot, monitor its battery level, and perform docking for charging. It uses the `move_base` action client to send navigation goals to the robot, and it subscribes to various topics such as battery level, battery status, charging dock pose, and odometry. 
 
