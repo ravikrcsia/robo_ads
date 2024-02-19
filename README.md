@@ -3,7 +3,11 @@
 ## Objective:
 
 Write custom ROS nodes for Autonomous Docking/Charging of
-Turtlebot3 Robot, within a simulated Gazebo world environment. The system should enable the robot to autonomously navigate back to the docking station, when the battery level is below 30%. Utilize ArUco Marker/AR Tag Transformation for localization of the docking station within the map. Utilize a depth camera and laser scanner for precise positioning of the robot with the center of the docking station.
+Turtlebot3 Robot, within a simulated Gazebo world environment. The system should enable the robot to autonomously navigate back to the docking station when the battery level is below 30%. Utilize ArUco Marker/AR Tag Transformation for localization of the docking station within the map. Utilize a depth camera and laser scanner for precise positioning of the robot with the center of the docking station.
+
+## Output
+
+<b>Successfully able to complete the task of autonomous navigation using move_base and navigating it to the dock station when the battery goes below 30%. Docking is very accurate (0.002 - 0.01 m i.e. less than even 1cm) from the TF (DOCK STATION) using a 2-stage docking method.</b>
 
 ### Hardware Used
   - i5 8th Gen
@@ -14,6 +18,9 @@ Turtlebot3 Robot, within a simulated Gazebo world environment. The system should
   -  ROS Noetic Ninjemys
   -  Gazebo
 
+### Video Link
+
+> [Google Drive link](https://drive.google.com/file/d/1xMPXKe3mIFX92K_4lBZCeWuHDkQou3hZ/view?usp=drive_link)
 
 ### Setup
 Follow the steps.
@@ -48,7 +55,7 @@ rosrun turtlebot3_navigation robo_nav.py
 
 ### Docking Station Model used
 
-<img src="docking_station.jpg">
+<img width="400" alt="docking_station" src="docking_station.jpg">
 
 You can find the model file in `turtlebot3_gazebo/models/aruco_marker`
 
@@ -65,7 +72,7 @@ The `aruco_detect.py` script is a ROS (Robot Operating System) node that detects
 
 #### dock_controller.py (`dock_controller_node`)
 
-The `dock_controller.py` script is designed for autonomous docking of a robot using a back camera and the lidar sensor. The script utilizes various ROS messages and services to receive and process data from sensors, calculate errors, and generate velocity commands to guide the robot to a charging dock.
+The `dock_controller.py` script is designed for the autonomous docking of a robot using a back camera and the lidar sensor. The script utilizes various ROS messages and services to receive and process data from sensors, calculate errors, and generate velocity commands to guide the robot to a charging dock.
 
 The script uses a PID-like controller to calculate the linear and angular errors based on the robot's current position and orientation, and the goal position and orientation of the charging dock. The linear and angular gains (`kp_linear` and `kp_angular`) are used to adjust the velocity commands.
 
